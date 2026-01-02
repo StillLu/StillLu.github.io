@@ -104,4 +104,7 @@ markup:
     renderer:
       unsafe: true
   highlight:
-    noClasses: fa
+    codeFences: true
+    guessSyntax: true
+    noClasses: false
+
