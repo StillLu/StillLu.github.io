@@ -3,6 +3,11 @@ languageCode: "en-us"
 title: "LU Blog"
 theme: ["PaperMod"]
 
+# 首页 & 列表配置
+paginate: 10
+mainSections:
+  - posts
+
 outputs:
   home:
     - HTML
@@ -12,21 +17,33 @@ outputs:
 params:
   env: production
   defaultTheme: auto
+
+  # ========== 首页模式 ==========
+  profileMode:
+    enabled: false   # 关键：关闭 Welcome 卡片
+
+  homeInfoParams:
+    Title: "LU Blog"
+    Content: >
+      Notes on thinking, work, and the space in between.
+
+  # ========== 文章显示 ==========
   ShowReadingTime: true
-  ShowToc: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
 
-  profileMode:
-    enabled: true
-    title: "Welcome to LU Blog"
-    subtitle: "Notes on thinking, work, and the space in between."
-    buttons:
-      - name: Posts
-        url: "/posts/"
-      - name: Tags
-        url: "/tags/"
+  ShowToc: true
+  TocOpen: true
+
+  # ========== 搜索 ==========
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 2
 
 menu:
   main:
