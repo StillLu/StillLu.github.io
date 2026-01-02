@@ -1,0 +1,47 @@
+baseURL: "https://stilllu.github.io/"
+languageCode: "en-us"
+title: "My Blog"
+theme: ["PaperMod"]
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+params:
+  env: production
+  defaultTheme: auto
+  ShowReadingTime: true
+  ShowToc: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+
+  profileMode:
+    enabled: true
+    title: "Welcome to My Blog"
+    subtitle: "Hi, this is StillLu. I’m documenting my learning notes here."
+    buttons:
+      - name: Posts
+        url: "/posts/"
+      - name: Tags
+        url: "/tags/"
+
+menu:
+  main:
+    - name: Posts
+      url: /posts/
+      weight: 1
+    - name: Archive
+      url: /archives/
+      weight: 2
+    - name: Search
+      url: /search/
+      weight: 3
+    - name: Tags
+      url: /tags/
+      weight: 4
+    - name: FAQ
+      url: /faq/
+      weight: 5
