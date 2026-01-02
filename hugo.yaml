@@ -3,62 +3,105 @@ languageCode: "en-us"
 title: "LU Blog"
 theme: ["PaperMod"]
 
-# 首页 & 列表配置
-paginate: 10
-mainSections:
-  - posts
+# Hugo >= 0.128 新分页配置（修复 paginate deprecated）
+pagination:
+  pagerSize: 10
 
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+# 重要：Search 需要 JSON
 outputs:
   home:
     - HTML
     - RSS
     - JSON
+  section:
+    - HTML
+    - RSS
+    - JSON
 
+# =========================
+# PaperMod 参数
+# =========================
 params:
   env: production
+
   defaultTheme: auto
+  disableThemeToggle: false
 
-  # ========== 首页模式 ==========
-  profileMode:
-    enabled: false   # 关键：关闭 Welcome 卡片
-
-  homeInfoParams:
-    Title: "LU Blog"
-    Content: >
-      Notes on thinking, work, and the space in between.
-
-  # ========== 文章显示 ==========
   ShowReadingTime: true
+  ShowShareButtons: false
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
+  ShowWordCount: false
+  ShowRssButtonInSectionTermList: true
 
-  ShowToc: true
-  TocOpen: true
+  # 首页：直接显示文章列表（关键）
+  profileMode:
+    enabled: false
 
-  # ========== 搜索 ==========
+  # 首页 post 列表风格（像 Lil’Log）
+  homeInfoParams:
+    Title: "Welcome to LU Blog"
+    Content: "Notes on thinking, work, and the space in between."
+
+  mainSections:
+    - posts
+
+  # 搜索配置（PaperMod 内置）
   fuseOpts:
     isCaseSensitive: false
     shouldSort: true
     location: 0
     distance: 1000
     threshold: 0.4
-    minMatchCharLength: 2
+    minMatchCharLength: 0
+    keys:
+      - title
+      - permalink
+      - summary
+      - content
 
+# =========================
+# 顶部菜单
+# =========================
 menu:
   main:
-    - name: Posts
+    - identifier: posts
+      name: Posts
       url: /posts/
       weight: 1
-    - name: Archive
+
+    - identifier: archive
+      name: Archive
       url: /archives/
       weight: 2
-    - name: Search
+
+    - identifier: search
+      name: Search
       url: /search/
       weight: 3
-    - name: Tags
+
+    - identifier: tags
+      name: Tags
       url: /tags/
       weight: 4
-    - name: FAQ
+
+    - identifier: faq
+      name: FAQ
       url: /faq/
       weight: 5
+
+# =========================
+# Markdown / 代码块
+# =========================
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: fa
