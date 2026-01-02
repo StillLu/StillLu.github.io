@@ -1,6 +1,6 @@
 baseURL: "https://stilllu.github.io/"
 languageCode: "en-us"
-title: "My Blog"
+title: "LU Blog"
 theme: ["PaperMod"]
 
 outputs:
@@ -20,8 +20,8 @@ params:
 
   profileMode:
     enabled: true
-    title: "Welcome to My Blog"
-    subtitle: "Hi, this is StillLu. I’m documenting my learning notes here."
+    title: "Welcome to LU Blog"
+    subtitle: "Hi, this is LU. I’m documenting my learning notes here."
     buttons:
       - name: Posts
         url: "/posts/"
